@@ -1,17 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import "./index.css"
+
+let currntDate = new Date(2020, 9, 22, 15);
+currntDate = currntDate.getHours();
+let  geeting  =  '';
+const cssStyle ={};
+
+ 
+if(currntDate >=1 && currntDate < 12) {
+  geeting = 'Good Morning';
+  cssStyle.color = 'green';
+}else if (currntDate >=12  && currntDate <19 ){
+  geeting = 'Good Afternoon';
+  cssStyle.color = 'Orange';
+
+}else {
+  geeting = 'Good Night'
+  cssStyle.color = 'Black';
+
+}
+
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <>
+
+  <div>
+  <h1>Hello Sir! <span style={cssStyle}> {geeting} </span></h1>
+</div>
+  </>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
